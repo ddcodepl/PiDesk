@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import sys
 
 in1 = 16
 in2 = 18
@@ -16,7 +17,10 @@ with open("/home/ubuntu/desk/height.txt", "r") as file:
     for current_height in file:
         pass
 
-height = input("Set height: ")
+if len(sys.argv) > 1:
+    height = sys.argv[1]
+else:
+    height = input("How many cm: ")
 
 if int(height) < 71:
     height = 71
