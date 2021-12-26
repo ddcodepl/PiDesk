@@ -17,7 +17,7 @@ GPIO.setup(in2, GPIO.OUT)
 GPIO.output(in1, False)
 GPIO.output(in2, False)
 
-if sys.argv[1]:
+if len(sys.argv) > 1:
     height = sys.argv[1]
 else:
     height = input("How many cm: ")
