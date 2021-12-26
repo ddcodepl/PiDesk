@@ -28,7 +28,7 @@ GPIO.output(in1, True)
 time.sleep(int(height)/2.5)
 
 f = open("/home/ubuntu/desk/height.txt", "w")
-f.write(str(int(current_height) + int(height)))
+f.write(str(int(current_height) - int(height)))
 f.close()
 
 GPIO.output(in1, False)
