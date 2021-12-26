@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import sys
 
 in1 = 18
 in2 = 16
@@ -11,7 +12,10 @@ GPIO.setup(in2, GPIO.OUT)
 GPIO.output(in1, False)
 GPIO.output(in2, False)
 
-height = input("How many cm: ")
+if sys.argv[1]:
+    height = sys.argv[1]
+else:
+    height = input("How many cm: ")
 
 GPIO.output(in2, True)
 
