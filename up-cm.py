@@ -1,11 +1,15 @@
 import RPi.GPIO as GPIO
 import time
 import sys
+import os
+
+cwd = os.getcwd()
+filepath = cwd + "/height.txt"
 
 in1 = 18
 in2 = 16
 
-with open("/home/ubuntu/desk/height.txt", "r") as file:
+with open(filepath, "r") as file:
     current_height = file.readline()
     for current_height in file:
         pass
@@ -26,7 +30,7 @@ GPIO.output(in2, True)
 
 time.sleep(int(height)/2.5)
 
-f = open("/home/ubuntu/desk/height.txt", "w")
+f = open(filepath, "w")
 f.write(str(int(current_height) + int(height)))
 f.close()
 
